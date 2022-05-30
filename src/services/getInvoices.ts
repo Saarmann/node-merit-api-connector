@@ -1,6 +1,7 @@
-import axios from 'axios';
+// import axios from 'axios';
 import { createHmac } from 'crypto';
 import { getTimestamp } from './getTimestamp';
+const axios = require('axios');
 
 export const getInvoices = (
   ApiId: string,
@@ -19,7 +20,7 @@ export const getInvoices = (
     .update(dataString)
     .digest('base64');
 
-  var url =
+  const url =
     'https://aktiva.merit.ee/api/v1/getinvoices' +
     '?ApiId=' +
     ApiId +
@@ -38,8 +39,10 @@ export const getInvoices = (
         data: reqJson,
       });
       console.log(response);
+      //   return response;
     } catch (error) {
       console.log(error);
+      //   return error;
     }
   })();
 };
